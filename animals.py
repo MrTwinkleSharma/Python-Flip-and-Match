@@ -20,7 +20,7 @@ class animal:
     #on the basis of indexc we'll places the animal on the game board
     self.index = index
     self.row = index // gc.NUM_TILES_SIDE # it will be helpful to access the indexx with row in later
-    self.column = index % gc.NUM_TILES_SIDE
+    self.col = index % gc.NUM_TILES_SIDE
     
     #let's create a association of name with index randomly
     
