@@ -57,15 +57,29 @@ while running:
       #print(mouse_x,mouse_y)
       index = find_index(mouse_x,mouse_y)
       #print(index)
-      
+      #let's create a list of current_images to be displayed 
+      current_images.append(index)
+      if len(current_images) > 2:
+        current_images = current_images[1:]
+        
       
       
   #first of all create a blank white background
   screen.fill(255,255,255)
    
   #displaying  each image randomly
-  for tile in tiles:
-    screen.blit(tile, (tile.col*gc.IMAGE_SIZE+gc.MARGIN, tile.row*gc.IMAGE_SIZE+gc.MARGIN))
+  for _,tile in enumerate(tiles):
+    #this is because we only wants 2 image at a time
+    image_i = tile.image if tile.index in current_images else tile.box 
+    if not tile.skip:
+      screen.blit(image_i, (tile.col*gc.IMAGE_SIZE+gc.MARGIN, tile.row*gc.IMAGE_SIZE+gc.MARGIN))
+  if len(current_images) == 2:
+    idx1,idx2 = current_images
+    if tiles[idx1].name == tiles[idx2].name:
+      tiles[idx1].skip = True
+      tiles[idx2].skip = True
+      current_images = []
+    
     
   #we must have to flip this tile to display image 
   display.flip()
