@@ -2,7 +2,7 @@ import pygame #importing the main library we'll going to use
 from pygame import display, event  #importing two subpackage for our game one for takng input and other for displaying it
 #for displaying image we have to import image module 
 from pygame import image 
-from animal import animal
+from animals import animal
 from time import sleep # to stop for a while when image matches
 import game_config as gc
 
@@ -39,6 +39,7 @@ def find_index(x,y):
 #we'll iterate over game loop untill this variable is true
 #Now simply creating a game loop 
 # which will be a while loop 
+current_images = []
 total_skipped = 0  # for finishing the game when each image matched
 while running:
   # pygame module provides us a get() function in events which fetches all the event as queue 
@@ -69,7 +70,7 @@ while running:
       
       
   #first of all create a blank white background
-  screen.fill(255,255,255)
+  screen.fill((255,255,255))
    
   #displaying  each image randomly
   for _,tile in enumerate(tiles):
