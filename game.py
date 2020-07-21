@@ -3,6 +3,8 @@ from pygame import display, event  #importing two subpackage for our game one fo
 #for displaying image we have to import image module 
 from pygame import image 
 from Animal import Animal
+from time import sleep # to stop for a while when image matches
+
 
 pygame.init() #this initialization is important to be done before using any of the functionality
 
@@ -37,6 +39,7 @@ def find_index(x,y):
 #we'll iterate over game loop untill this variable is true
 #Now simply creating a game loop 
 # which will be a while loop 
+total_skipped = 0  # for finishing the game when each image matched
 while running:
   # pygame module provides us a get() function in events which fetches all the event as queue 
   # and returns a list of keyboard and mouse event 
@@ -78,6 +81,10 @@ while running:
     if tiles[idx1].name == tiles[idx2].name:
       tiles[idx1].skip = True
       tiles[idx2].skip = True
+      sleep(0.4)
+      screen.blit(matched, (0,0))
+      display.flip()
+      sleep(0.4)
       current_images = []
     
     
