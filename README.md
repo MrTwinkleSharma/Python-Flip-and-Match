@@ -7,3 +7,5 @@ Steps to Create it.
 2. Now as all the Games this will also have a game loop which will continue as condition described and stops when user explicitly did something to stop it.
 so this loop will have a logic to take user input and react differently on that input to update the game state and display
 
+3. After this we'll create a game configuration just to set the variables
+
