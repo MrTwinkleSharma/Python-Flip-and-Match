@@ -2,7 +2,7 @@ import pygame #importing the main library we'll going to use
 from pygame import display, event  #importing two subpackage for our game one for takng input and other for displaying it
 #for displaying image we have to import image module 
 from pygame import image 
-from Animal import Animal
+from animal import animal
 from time import sleep # to stop for a while when image matches
 
 
@@ -16,7 +16,7 @@ display.set_caption ("My Game: FLIP AND MATCH") # here we can give a title to ou
 screen = display.set_mode((512,512)) 
 
 #creating a screen element of matched png to be dislpayed later
-matched = image.load('otherassets/matched.png')
+matched = image.load('other_assets/matched.png')
 
 #this will only create a element but to display that image we have to blit the image using blit function
 
@@ -25,7 +25,7 @@ matched = image.load('otherassets/matched.png')
 #now even the image has been set but we didn't displayed it yet so for displaying we have to call flip method
 
 #display.flip()
-tiles = [Animal(i) for i in range(0, gc.NUM_TILES_TOTAL)]
+tiles = [animal(i) for i in range(0, gc.NUM_TILES_TOTAL)]
 #let's set a boolean variable and called it running 
 running = True 
 
