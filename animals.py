@@ -40,7 +40,7 @@ class animal:
     self.box = self.image.copy()
     
     #filling to this box
-    self.box.fill(200,200,200) #gray color 
+    self.box.fill((200,200,200)) #gray color 
     
     # a boolean to be used in 
     self.skip = False
