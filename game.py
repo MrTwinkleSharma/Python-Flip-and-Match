@@ -2,6 +2,7 @@ import pygame #importing the main library we'll going to use
 from pygame import display, event  #importing two subpackage for our game one for takng input and other for displaying it
 #for displaying image we have to import image module 
 from pygame import image 
+from Animal import Animal
 
 pygame.init() #this initialization is important to be done before using any of the functionality
 
@@ -17,17 +18,23 @@ matched = image.load('otherassets/matched.png')
 
 #this will only create a element but to display that image we have to blit the image using blit function
 
-screen.blit(matched, (0,0,512,512)) #second arguement is a tuple of coordinated upperleft to lowerright
+#screen.blit(matched, (0,0,512,512)) #second arguement is a tuple of coordinated upperleft to lowerright
 #as we want it on whole window we are taking 512 
 #now even the image has been set but we didn't displayed it yet so for displaying we have to call flip method
 
-display.flip()
-
+#display.flip()
+tiles = [Animal(i) for i in range(0, gc.NUM_TILES_TOTAL)]
 #let's set a boolean variable and called it running 
 running = True 
 
+def find_index(x,y):
+  row = x//gc.IMAGE_SIZE
+  col = y//gc.IMAGE_SIZE
+  
+  index = row*gc.NUM_TILES_SIDE + col
+  
+  return index
 #we'll iterate over game loop untill this variable is true
-
 #Now simply creating a game loop 
 # which will be a while loop 
 while running:
@@ -40,6 +47,28 @@ while running:
   for e in current_events:
     if e.type == QUIT:
       running = False
+    if e.type == pygame.KEYDOWN:
+      if e.key == pygame.K_ESCAPE:
+        running = False
+    if e.type == pygame.MOUSEBUTTONDOWN:
+      #now we have to find the position of mouse to access index
+      #once we have index then we can handle it
+      mouse_x,mouse_y = pygame.mouse.get_pos()
+      #print(mouse_x,mouse_y)
+      index = find_index(mouse_x,mouse_y)
+      #print(index)
       
-
+      
+      
+  #first of all create a blank white background
+  screen.fill(255,255,255)
+   
+  #displaying  each image randomly
+  for tile in tiles:
+    screen.blit(tile, (tile.col*gc.IMAGE_SIZE+gc.MARGIN, tile.row*gc.IMAGE_SIZE+gc.MARGIN))
+    
+  #we must have to flip this tile to display image 
+  display.flip()
+    
+   
   
