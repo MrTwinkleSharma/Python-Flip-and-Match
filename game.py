@@ -61,7 +61,8 @@ while running:
       index = find_index(mouse_x,mouse_y)
       #print(index)
       #let's create a list of current_images to be displayed 
-      current_images.append(index)
+      if index not in current_images:
+        current_images.append(index)
       if len(current_images) > 2:
         current_images = current_images[1:]
         
@@ -76,6 +77,9 @@ while running:
     image_i = tile.image if tile.index in current_images else tile.box 
     if not tile.skip:
       screen.blit(image_i, (tile.col*gc.IMAGE_SIZE+gc.MARGIN, tile.row*gc.IMAGE_SIZE+gc.MARGIN))
+    else :
+      total_skipped +=1
+     
   if len(current_images) == 2:
     idx1,idx2 = current_images
     if tiles[idx1].name == tiles[idx2].name:
@@ -87,7 +91,10 @@ while running:
       sleep(0.4)
       current_images = []
     
-    
+  if total_skipped == len(tiles): #or we can say 16 here means we will finish the Game when all are matched
+    running = False
+     
+  
   #we must have to flip this tile to display image 
   display.flip()
     
