@@ -14,8 +14,8 @@ def available_animals():
 
 #let's define the main animal class
 
-class Animan:
-  def __init(self,index):
+class animal:
+  def __init__(self,index):
     # we passed a index associated with each animal this will from 0-15(inclusive) because there are 16 images total
     #on the basis of indexc we'll places the animal on the game board
     self.index = index
@@ -31,7 +31,8 @@ class Animan:
     
     #to associate image path with name 
     self.image_path = os.path.join(gc.ASSET_DIR, self.name)
-    
+    self.image = image.load(self.image_path)
+
     #it will resize our image as required
     self.image = transform.scale(self.image, (gc.IMAGE_SIZE - 2*gc.MARGIN, gc.IMAGE_SIZE - 2*gc.MARGIN)) 
     
