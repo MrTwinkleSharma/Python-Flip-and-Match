@@ -35,7 +35,7 @@ def find_index(x,y):
   
   index = row*gc.NUM_TILES_SIDE + col
   
-  return index
+  return row,col,index
 #we'll iterate over game loop untill this variable is true
 #Now simply creating a game loop 
 # which will be a while loop 
@@ -59,7 +59,7 @@ while running:
       #once we have index then we can handle it
       mouse_x,mouse_y = pygame.mouse.get_pos()
       #print(mouse_x,mouse_y)
-      index = find_index(mouse_x,mouse_y)
+      row,col,index = find_index(mouse_x,mouse_y)
       #print(index)
       #let's create a list of current_images to be displayed 
       if index not in current_images:
