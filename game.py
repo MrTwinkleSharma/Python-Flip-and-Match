@@ -49,7 +49,7 @@ while running:
   
   # iterating over the list of events with for loops
   for e in current_events:
-    if e.type == QUIT:
+    if e.type == pygame.QUIT:
       running = False
     if e.type == pygame.KEYDOWN:
       if e.key == pygame.K_ESCAPE:
