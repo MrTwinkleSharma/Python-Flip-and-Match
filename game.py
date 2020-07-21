@@ -4,7 +4,7 @@ from pygame import display, event  #importing two subpackage for our game one fo
 from pygame import image 
 from animal import animal
 from time import sleep # to stop for a while when image matches
-
+import game_config as gc
 
 pygame.init() #this initialization is important to be done before using any of the functionality
 
@@ -25,7 +25,7 @@ matched = image.load('other_assets/matched.png')
 #now even the image has been set but we didn't displayed it yet so for displaying we have to call flip method
 
 #display.flip()
-tiles = [animal(i) for i in range(0, gc.NUM_TILES_TOTAL)]
+tiles = [animal(i) for i in range(0, gc.NUM_TOTAL_TILES)]
 #let's set a boolean variable and called it running 
 running = True 
 
