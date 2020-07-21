@@ -11,7 +11,7 @@ SCREEN_SIZE = 512
 NUM_TILES_SIDE = 4
 
 #number of total tiles
-NUM_TOTAL_TILES = 16
+NUM_TILES_TOTAL = 16
 
 #margin between tiles
 MARGIN = 4
