@@ -25,7 +25,7 @@ matched = image.load('other_assets/matched.png')
 #now even the image has been set but we didn't displayed it yet so for displaying we have to call flip method
 
 #display.flip()
-tiles = [animal(i) for i in range(0, gc.NUM_TOTAL_TILES)]
+tiles = [animal(i) for i in range(0, gc.NUM_TILES_TOTAL)]
 #let's set a boolean variable and called it running 
 running = True 
 
