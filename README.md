@@ -9,3 +9,6 @@ so this loop will have a logic to take user input and react differently on that 
 
 3. After this we'll create a game configuration just to set the variables
 
+4. Using image blit and flip method to display image
+
+5. Creating a custom Animal class in a way such that each objet will have the index and name of animal associated with it
